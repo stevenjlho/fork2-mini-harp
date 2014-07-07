@@ -3,5 +3,10 @@
 var createMiniHarp = require("../index.js")
 	  , app = createMiniHarp();
 
-console.log("Starting mini-harp on http://localhost:4000");
-	app.listen(4000);
+var minimist = require('minimist');
+var argv = minimist(process.argv.slice(2));
+
+var port = argv.port || 4000;
+console.log(argv);
+console.log("Starting mini-harp on http://localhost:" + port);
+	app.listen(port);

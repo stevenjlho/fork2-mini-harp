@@ -12,6 +12,7 @@
   "author": "Steven Ho",
   "license": "MIT",
   "dependencies": {
-    "connect": "^3.0.1"
+    "connect": "^3.0.1",
+    "minimist": "^0.2.0"
   }
 }

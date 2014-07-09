@@ -1,6 +1,7 @@
 var connect = require('connect');
 var serveStatic = require('serve-static');
 var makeJade = require('../lib/processor/jade.js')
+var makeLess = require('../lib/processor/less.js')
 
 module.exports = function(path) {
 	// create a connect app
@@ -14,6 +15,7 @@ module.exports = function(path) {
 		}
 	})
 	.use(makeJade(path))
+	.use(makeLess(path))
 	.use(serveStatic(path))
 	return app;
 }

@@ -3,6 +3,7 @@ var serveStatic = require('serve-static');
 var makeJade = require('../lib/processor/jade.js')
 var makeLess = require('../lib/processor/less.js')
 var serverRoot = require('../lib/processor/root.js')
+var rejectRequest = require('../lib/processor/reject.js')
 
 module.exports = function(root) {
 	// create a connect app
@@ -15,6 +16,7 @@ module.exports = function(root) {
 			next();
 		}
 	})
+	.use(rejectRequest(root))
 	.use(serverRoot(root))
 	.use(makeJade(root))
 	.use(makeLess(root))
